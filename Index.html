@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Integradora de Proyectos | Consultoría ERP</title>
+  <meta name="description" content="Consultoría ERP con más de 20 años de experiencia en PYME. Implementación, análisis de procesos, soporte y personalizaciones tecnológicas.">
+
+  <style>
+    /* -------------------
+       ESTILOS GENERALES
+    ---------------------- */
+    :root {
+      --blue-primary: #0033A0;
+      --blue-secondary: #0A4EC2;
+      --blue-accent: #1A73E8;
+      --text-dark: #1f2937;
+      --text-light: #4b5563;
+      --bg-light: #f5f7fa;
+      --white: #ffffff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", Roboto, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-light);
+      color: var(--text-dark);
+      line-height: 1.5;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* -------------------
+       HEADER
+    ---------------------- */
+    header {
+      background: var(--white);
+      border-bottom: 1px solid #e5e7eb;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 0 1.5rem;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+    }
+
+    .logo {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--blue-primary);
+      letter-spacing: 0.5px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.4rem;
+      font-size: 1rem;
+    }
+
+    .nav-links a:hover {
+      color: var(--blue-primary);
+    }
+
+    /* -------------------
+       HERO SECTION
+    ---------------------- */
+    .hero {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 2rem;
+      padding: 4rem 0 3rem;
+      align-items: center;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--blue-primary);
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.05rem;
+      color: var(--text-light);
+      margin-bottom: 1.5rem;
+    }
+
+    .btn-primary {
+      background: var(--blue-primary);
+      color: var(--white);
+      padding: 0.8rem 1.6rem;
+      border: none;
+      border-radius: 0.5rem;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .btn-primary:hover {
+      background: var(--blue-secondary);
+    }
+
+    .info-card {
+      background: var(--white);
+      padding: 1.5rem;
+      border-radius: 1rem;
+      border-left: 5px solid var(--blue-primary);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    }
+
+    .info-card h3 {
+      color: var(--blue-primary);
+      margin-bottom: 0.8rem;
+    }
+
+    .info-card ul {
+      list-style: none;
+      font-size: 0.95rem;
+      color: var(--text-light);
+    }
+
+    .info-card li {
+      margin-bottom: 0.5rem;
+    }
+
+    /* -------------------
+       SECCIONES GENERALES
+    ---------------------- */
+    section {
+      padding: 3.5rem 0;
+    }
+
+    section h2 {
+      text-align: center;
+      font-size: 1.9rem;
+      font-weight: 700;
+      color: var(--blue-primary);
+      margin-bottom: 1rem;
+    }
+
+    .section-intro {
+      text-align: center;
+      max-width: 800px;
+      margin: auto;
+      color: var(--text-light);
+      margin-bottom: 2.5rem;
+      font-size: 1.05rem;
+    }
+
+    /* -------------------
+       CARDS SERVICIOS
+    ---------------------- */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: var(--white);
+      padding: 1.6rem;
+      border-radius: 0.8rem;
+      border-top: 4px solid var(--blue-primary);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    }
+
+    .card h3 {
+      color: var(--blue-primary);
+      margin-bottom: 0.6rem;
+      font-size: 1.15rem;
+    }
+
+    .card p {
+      color: var(--text-light);
+      font-size: 0.95rem;
+    }
+
+    /* -------------------
+       NOSOTROS
+    ---------------------- */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    .mission-box {
+      background: var(--blue-primary);
+      color: var(--white);
+      padding: 1.6rem;
+      border-radius: 1rem;
+      font-size: 1rem;
+    }
+
+    /* -------------------
+       CONTACTO
+    ---------------------- */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    footer {
+      background: var(--blue-primary);
+      color: var(--white);
+      text-align: center;
+      padding: 1.2rem 0;
+      margin-top: 3rem;
+      font-size: 0.9rem;
+    }
+
+    /* -------------------
+       RESPONSIVE
+    ---------------------- */
+    @media (max-width: 900px) {
+      .hero,
+      .about-grid,
+      .contact-grid,
+      .cards {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="container nav">
+      <div class="logo">INTEGRADORA DE PROYECTOS</div>
+      <nav class="nav-links">
+        <a href="#inicio">Inicio</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#nosotros">Nosotros</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <main class="container" id="inicio">
+    <section class="hero">
+      <div>
+        <h1>Consultoría ERP con más de 20 años de experiencia.</h1>
+        <p>
+          Optimizamos tus procesos, analizamos tu operación y desarrollamos soluciones tecnológicas a la medida.
+          Somos especialistas en implementación, soporte y personalizaciones de sistemas ERP para pequeñas y medianas empresas.
+        </p>
+        <a href="#contacto"><button class="btn-primary">Solicitar información</button></a>
+      </div>
+
+      <div class="info-card">
+        <h3>Experiencia y enfoque</h3>
+        <ul>
+          <li>+20 años en consultoría ERP.</li>
+          <li>Especialistas en PYME en México.</li>
+          <li>Expertos en comercializadoras, editoriales, manufactura y servicios.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- SERVICIOS -->
+    <section id="servicios">
+      <h2>Servicios</h2>
+      <p class="section-intro">
+        Soluciones profesionales basadas en experiencia real de campo, ajustadas a la operación y necesidades tecnológicas de tu empresa.
+      </p>
+
+      <div class="cards">
+        <div class="card">
+          <h3>Análisis de procesos</h3>
+          <p>
+            Diagnóstico detallado de tu operación actual, identificación de áreas de mejora y recomendaciones para optimizar tiempos,
+            costos y flujos internos.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Implementación de ERP</h3>
+          <p>
+            Parametrización, configuración y puesta en marcha de sistemas ERP adaptados a tu giro y forma de trabajo.
+            Acompañamiento en cada etapa del proceso.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Soporte y personalizaciones</h3>
+          <p>
+            Acompañamiento funcional y técnico, así como desarrollos a la medida que permiten que el ERP se ajuste al 100% a tus requerimientos.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- NOSOTROS -->
+    <section id="nosotros">
+      <h2>Sobre nosotros</h2>
+      <p class="section-intro">
+        Experiencia, claridad y soluciones prácticas para los desafíos tecnológicos de hoy.
+      </p>
+
+      <div class="about-grid">
+        <div>
+          <p>
+            Integradora de Proyectos nace con el compromiso de ofrecer soluciones eficientes a la pequeña y mediana empresa,
+            alineadas a la realidad operativa del mercado mexicano.
+          </p>
+          <p>
+            Con más de dos décadas de experiencia en consultoría ERP, hemos acompañado a empresas de diversos giros para fortalecer sus procesos,
+            mejorar su control interno y aprovechar la tecnología como herramienta de crecimiento.
+          </p>
+          <p>
+            Nuestro enfoque es directo, profesional y orientado a resultados medibles. Cada recomendación y cada desarrollo está pensado para
+            generar valor inmediato y sostenido.
+          </p>
+        </div>
+
+        <div class="mission-box">
+          <strong>Misión:</strong><br>
+          Acompañar a las empresas en su crecimiento mediante soluciones tecnológicas claras,
+          funcionales y totalmente alineadas a sus procesos administrativos y operativos.
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contacto">
+      <h2>Contacto</h2>
+      <p class="section-intro">
+        Ponte en contacto con nosotros para una asesoría, diagnóstico o cotización personalizada.
+      </p>
+
+      <div class="contact-grid">
+        <div>
+          <p><strong>Correo:</strong> contacto@intpromes.com</p>
+          <p><strong>WhatsApp:</strong> +52 1 56 4815 6805</p>
+          <p><strong>LinkedIn:</strong> Integradora de Proyectos</p>
+        </div>
+
+        <form>
+          <label>Nombre</label>
+          <input type="text" placeholder=" ">
+
+          <label>Correo electrónico</label>
+          <input type="email" placeholder=" ">
+
+          <label>Mensaje</label>
+          <textarea placeholder="    " rows="4"></textarea>
+
+          <button class="btn-primary" style="width: 100%; margin-top: 0.8rem;">
+            Enviar mensaje
+          </button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © 2025 Integradora de Proyectos — Consultoría ERP y soluciones tecnológicas.
+  </footer>
+
+</body>
+</html>
