@@ -3,383 +3,662 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Integradora de Proyectos | Consultoría ERP</title>
-  <meta name="description" content="Consultoría ERP con más de 20 años de experiencia en PYME. Implementación, análisis de procesos, soporte y personalizaciones tecnológicas.">
+  <title>Integradora de Proyectos | Consultoría y desarrollo ERP · Especialistas en TOTVS Protheus</title>
+  <meta name="description" content="Consultoría y desarrollo para cualquier ERP, con especialidad en TOTVS Protheus: personalizaciones, desarrollo, integraciones, reportes, soporte técnico y automatización de procesos. IA aplicada a las mejores prácticas y 20 años en el mercado mexicano.">
+  <meta property="og:title" content="Integradora de Proyectos | Consultoría y desarrollo ERP">
+  <meta property="og:description" content="Optimizamos tu ERP con personalizaciones, desarrollo, integraciones, reportes, soporte y automatización. Especialistas en TOTVS Protheus. 20 años en el mercado mexicano.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://intpromes.com/">
+  <meta name="theme-color" content="#06205C">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,500..800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 
   <style>
-    /* -------------------
-       ESTILOS GENERALES
-    ---------------------- */
     :root {
-      --blue-primary: #0033A0;
-      --blue-secondary: #0A4EC2;
-      --blue-accent: #1A73E8;
-      --text-dark: #1f2937;
-      --text-light: #4b5563;
-      --bg-light: #f5f7fa;
+      --navy: #06205C;       /* fondo profundo */
+      --navy-2: #0B2D7A;     /* superficies sobre navy */
+      --blue: #0033A0;       /* azul de marca */
+      --electric: #1F6BFF;   /* acciones */
+      --sky: #7FB2FF;        /* acentos sobre fondo oscuro */
+      --ice: #EEF3FC;        /* fondo claro */
+      --line: #D5DFF2;
+      --ink: #0E1B3D;
+      --ink-soft: #46557A;
       --white: #ffffff;
+
+      --display: "Archivo", "Segoe UI", sans-serif;
+      --body: "IBM Plex Sans", "Segoe UI", Roboto, sans-serif;
+      --mono: "IBM Plex Mono", Consolas, monospace;
+
+      --wrap: 1180px;
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: "Segoe UI", Roboto, sans-serif;
-    }
-
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
     body {
-      background-color: var(--bg-light);
-      color: var(--text-dark);
-      line-height: 1.5;
+      font-family: var(--body);
+      font-size: 1.0625rem;
+      line-height: 1.6;
+      color: var(--ink);
+      background: var(--ice);
+      -webkit-font-smoothing: antialiased;
     }
+    img, svg { display: block; max-width: 100%; }
+    a { color: inherit; }
+    :focus-visible { outline: 3px solid var(--electric); outline-offset: 3px; border-radius: 4px; }
 
-    a {
+    .wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 1.5rem; }
+    .wrap > * { min-width: 0; }
+    h2 { overflow-wrap: break-word; }
+
+    h1, h2, h3 { font-family: var(--display); line-height: 1.08; letter-spacing: -0.01em; }
+    h2 { font-size: clamp(2rem, 4vw, 2.9rem); font-weight: 750; font-stretch: 92%; }
+    h3 { font-size: 1.25rem; font-weight: 650; }
+    .lead { font-size: 1.15rem; color: var(--ink-soft); max-width: 60ch; }
+
+    /* ---------- Botones ---------- */
+    .btn {
+      display: inline-flex; align-items: center; gap: .55rem;
+      font: 600 1rem/1 var(--body);
+      padding: .95rem 1.4rem;
+      border-radius: 10px;
       text-decoration: none;
-      color: inherit;
+      border: 2px solid transparent;
+      cursor: pointer;
+      transition: background-color .2s, color .2s, border-color .2s;
     }
+    .btn-primary { background: var(--electric); color: var(--white); }
+    .btn-primary:hover { background: #0F55E0; }
+    .btn-ghost { border-color: rgba(255,255,255,.35); color: var(--white); }
+    .btn-ghost:hover { border-color: var(--white); }
+    .btn svg { width: 18px; height: 18px; }
 
-    /* -------------------
-       HEADER
-    ---------------------- */
-    header {
-      background: var(--white);
-      border-bottom: 1px solid #e5e7eb;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
+    /* ---------- Header ---------- */
+    .site-header {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(6, 32, 92, .92);
+      backdrop-filter: saturate(140%) blur(10px);
+      border-bottom: 1px solid rgba(255,255,255,.08);
+      color: var(--white);
     }
-
-    .container {
-      max-width: 1200px;
-      margin: auto;
-      padding: 0 1.5rem;
+    .nav { display: flex; align-items: center; justify-content: space-between; height: 72px; gap: 1.5rem; }
+    .brand { display: flex; align-items: center; gap: .7rem; text-decoration: none; }
+    .brand-mark {
+      width: 36px; height: 36px; border-radius: 9px;
+      background: var(--electric);
+      display: grid; place-items: center;
+      font: 800 1rem/1 var(--display); letter-spacing: -.02em;
     }
+    .brand-name { font: 700 1.05rem/1.1 var(--display); font-stretch: 95%; }
+    .brand-name small { display: block; font: 400 .78rem/1.2 var(--body); color: var(--sky); }
+    .nav-links { display: flex; gap: 1.8rem; list-style: none; font-size: .97rem; }
+    .nav-links a { text-decoration: none; color: rgba(255,255,255,.82); }
+    .nav-links a:hover { color: var(--white); }
+    .nav .btn { padding: .7rem 1.1rem; font-size: .93rem; }
+    .menu-toggle { display: none; background: none; border: 0; color: var(--white); cursor: pointer; padding: .4rem; }
 
-    .nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 0;
-    }
-
-    .logo {
-      font-size: 1.4rem;
-      font-weight: 700;
-      color: var(--blue-primary);
-      letter-spacing: 0.5px;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 1.4rem;
-      font-size: 1rem;
-    }
-
-    .nav-links a:hover {
-      color: var(--blue-primary);
-    }
-
-    /* -------------------
-       HERO SECTION
-    ---------------------- */
+    /* ---------- Hero ---------- */
     .hero {
-      display: grid;
-      grid-template-columns: 1.4fr 1fr;
-      gap: 2rem;
-      padding: 4rem 0 3rem;
-      align-items: center;
+      background:
+        radial-gradient(900px 500px at 85% 10%, rgba(31,107,255,.35), transparent 60%),
+        var(--navy);
+      color: var(--white);
+      padding: 5.5rem 0 6rem;
+      overflow: hidden;
     }
-
+    .hero-grid { display: grid; grid-template-columns: 1.05fr 1fr; gap: 3.5rem; align-items: center; }
+    .hero-kicker { color: var(--sky); font-weight: 500; margin-bottom: 1.2rem; }
     .hero h1 {
-      font-size: 2.5rem;
-      font-weight: 700;
-      color: var(--blue-primary);
-      margin-bottom: 1rem;
-    }
-
-    .hero p {
-      font-size: 1.05rem;
-      color: var(--text-light);
+      font-size: clamp(2.6rem, 5.6vw, 4.4rem);
+      font-weight: 800;
+      font-stretch: 82%;
+      line-height: 1;
+      letter-spacing: -0.02em;
       margin-bottom: 1.5rem;
     }
+    .hero h1 .protheus { display: block; font-stretch: 112%; color: var(--white); }
+    .hero p.lead { color: rgba(255,255,255,.8); margin-bottom: 2.2rem; }
+    .hero .hl { color: var(--white); font-weight: 600; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: .9rem; }
+    .hero-facts {
+      display: flex; flex-wrap: wrap; gap: 1.6rem 2.4rem;
+      margin-top: 3rem; padding-top: 1.6rem;
+      border-top: 1px solid rgba(255,255,255,.14);
+      list-style: none; font-size: .95rem; color: rgba(255,255,255,.75);
+    }
+    .hero-facts strong { display: block; color: var(--white); font: 700 1.05rem/1.3 var(--display); }
 
-    .btn-primary {
-      background: var(--blue-primary);
+    /* Panel de código: el elemento memorable */
+    .ide {
+      background: #0A1A44;
+      border: 1px solid rgba(127,178,255,.22);
+      border-radius: 14px;
+      box-shadow: 0 30px 80px -20px rgba(0,10,40,.7);
+      overflow: hidden;
+      font-family: var(--mono);
+      font-size: .86rem;
+    }
+    .ide-bar {
+      display: flex; align-items: center; gap: .5rem;
+      padding: .75rem 1rem;
+      background: rgba(255,255,255,.04);
+      border-bottom: 1px solid rgba(127,178,255,.14);
+      color: rgba(255,255,255,.6); font-size: .78rem;
+    }
+    .ide-bar i { width: 10px; height: 10px; border-radius: 50%; background: rgba(255,255,255,.18); }
+    .ide-bar span { margin-left: .6rem; }
+    .ide pre { padding: 1.2rem 1.3rem .6rem; line-height: 1.75; color: #D6E3FF; white-space: pre; overflow-x: auto; }
+    .ide pre .ln { display: block; }
+    .k { color: #7FB2FF; } .s { color: #9FE3C4; } .c { color: #6F82B3; } .f { color: #FFD48A; }
+    .ai-note {
+      margin: .4rem 1rem 1.1rem;
+      padding: .9rem 1rem;
+      border-radius: 10px;
+      background: rgba(31,107,255,.16);
+      border: 1px solid rgba(127,178,255,.35);
+      font-family: var(--body); font-size: .9rem; color: #E4ECFF;
+      display: grid; grid-template-columns: auto 1fr; gap: .75rem; align-items: start;
+    }
+    .ai-badge {
+      font: 600 .72rem/1 var(--mono);
+      background: var(--electric); color: var(--white);
+      padding: .35rem .5rem; border-radius: 6px;
+    }
+
+    /* Revelado único al cargar */
+    @media (prefers-reduced-motion: no-preference) {
+      .ide pre .ln { opacity: 0; transform: translateX(-6px); animation: line-in .35s ease-out forwards; }
+      .ide pre .ln:nth-child(1){animation-delay:.25s}.ide pre .ln:nth-child(2){animation-delay:.35s}
+      .ide pre .ln:nth-child(3){animation-delay:.45s}.ide pre .ln:nth-child(4){animation-delay:.55s}
+      .ide pre .ln:nth-child(5){animation-delay:.65s}.ide pre .ln:nth-child(6){animation-delay:.75s}
+      .ide pre .ln:nth-child(7){animation-delay:.85s}.ide pre .ln:nth-child(8){animation-delay:.95s}
+      .ide pre .ln:nth-child(9){animation-delay:1.05s}.ide pre .ln:nth-child(10){animation-delay:1.15s}
+      .ide pre .ln:nth-child(11){animation-delay:1.25s}.ide pre .ln:nth-child(12){animation-delay:1.35s}
+      .ai-note { opacity: 0; transform: translateY(8px); animation: note-in .5s ease-out 1.7s forwards; }
+      @keyframes line-in { to { opacity: 1; transform: none; } }
+      @keyframes note-in { to { opacity: 1; transform: none; } }
+    }
+
+    /* ---------- Secciones ---------- */
+    .section { padding: 6rem 0; }
+    .section-head { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem 4rem; align-items: end; margin-bottom: 3.5rem; }
+    .section-head p { color: var(--ink-soft); font-size: 1.1rem; max-width: 52ch; }
+
+    /* Servicios: filas, no tarjetas idénticas */
+    .services { list-style: none; display: grid; grid-template-columns: repeat(2, 1fr); column-gap: 4rem; border-top: 2px solid var(--ink); }
+    .service { display: grid; grid-template-columns: 44px 1fr; gap: 1.1rem; padding: 2rem 0; border-bottom: 1px solid var(--line); }
+    .service svg { width: 34px; height: 34px; color: var(--blue); margin-top: .15rem; }
+    .service h3 { margin-bottom: .45rem; color: var(--ink); }
+    .service p { color: var(--ink-soft); font-size: 1rem; }
+    .service .tags { margin-top: .8rem; font: 500 .82rem/1.5 var(--mono); color: var(--blue); }
+
+    /* Banda IA */
+    .ai {
+      background: var(--blue);
       color: var(--white);
-      padding: 0.8rem 1.6rem;
-      border: none;
-      border-radius: 0.5rem;
-      font-size: 1rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: 0.3s;
+      position: relative;
+      overflow: hidden;
     }
-
-    .btn-primary:hover {
-      background: var(--blue-secondary);
+    .ai::after {
+      content: "";
+      position: absolute; inset: auto -10% -60% auto;
+      width: 640px; height: 640px; border-radius: 50%;
+      border: 90px solid rgba(255,255,255,.05);
+      pointer-events: none;
     }
+    .ai-grid { display: grid; grid-template-columns: 1fr 1.15fr; gap: 4rem; align-items: start; position: relative; z-index: 1; }
+    .ai h2 { margin-bottom: 1.3rem; }
+    .ai .lead { color: rgba(255,255,255,.85); }
+    .ai-points { list-style: none; display: grid; gap: 1px; background: rgba(255,255,255,.18); border-radius: 14px; overflow: hidden; }
+    .ai-points li { background: var(--blue); padding: 1.4rem 1.5rem; }
+    .ai-points li:nth-child(odd) { background: #0639A8; }
+    .ai-points h3 { font-size: 1.08rem; margin-bottom: .3rem; }
+    .ai-points p { color: rgba(255,255,255,.8); font-size: .97rem; }
+    .ai-disclaimer { margin-top: 1.6rem; font-size: .93rem; color: rgba(255,255,255,.75); max-width: 52ch; }
 
-    .info-card {
-      background: var(--white);
-      padding: 1.5rem;
-      border-radius: 1rem;
-      border-left: 5px solid var(--blue-primary);
-      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    /* Método: secuencia real, por eso va numerado */
+    .steps { list-style: none; display: grid; grid-template-columns: repeat(5, 1fr); gap: 1.2rem; counter-reset: step; }
+    .step { position: relative; padding-top: 3.2rem; }
+    .step::before {
+      counter-increment: step; content: counter(step);
+      position: absolute; top: 0; left: 0;
+      width: 2.3rem; height: 2.3rem; border-radius: 50%;
+      background: var(--white); border: 2px solid var(--blue); color: var(--blue);
+      display: grid; place-items: center; font: 700 1rem/1 var(--display);
     }
-
-    .info-card h3 {
-      color: var(--blue-primary);
-      margin-bottom: 0.8rem;
+    .step:not(:last-child)::after {
+      content: ""; position: absolute; top: 1.15rem; left: 2.8rem; right: -0.7rem;
+      height: 2px; background: var(--line);
     }
+    .step h3 { font-size: 1.08rem; margin-bottom: .4rem; }
+    .step p { font-size: .95rem; color: var(--ink-soft); }
 
-    .info-card ul {
-      list-style: none;
-      font-size: 0.95rem;
-      color: var(--text-light);
+    /* Nosotros */
+    .about { background: var(--white); }
+    .about-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 4.5rem; align-items: center; }
+    .years {
+      font: 800 clamp(7rem, 16vw, 12rem)/.8 var(--display);
+      font-stretch: 75%;
+      letter-spacing: -0.04em;
+      color: var(--blue);
     }
+    .years-caption { font: 600 1.35rem/1.25 var(--display); font-stretch: 95%; margin-top: 1rem; max-width: 18ch; }
+    .about-copy p { color: var(--ink-soft); margin-bottom: 1.1rem; max-width: 62ch; }
+    .about-copy h2 { margin-bottom: 1.4rem; }
+    .industries { display: flex; flex-wrap: wrap; gap: .6rem; list-style: none; margin: 1.6rem 0 2rem; }
+    .industries li { padding: .5rem .95rem; border: 1px solid var(--line); border-radius: 999px; font-size: .93rem; color: var(--ink); background: var(--ice); }
+    .mission { border-left: 4px solid var(--electric); padding: .3rem 0 .3rem 1.3rem; }
+    .mission strong { display: block; font-family: var(--display); color: var(--blue); margin-bottom: .2rem; }
+    .mission p { margin: 0; color: var(--ink); }
 
-    .info-card li {
-      margin-bottom: 0.5rem;
+    /* Contacto */
+    .contact { background: var(--navy); color: var(--white); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 4rem; }
+    .contact h2 { margin-bottom: 1.2rem; }
+    .contact .lead { color: rgba(255,255,255,.8); margin-bottom: 2.2rem; }
+    .channels { list-style: none; display: grid; gap: 1rem; }
+    .channels a { display: flex; align-items: center; gap: 1rem; text-decoration: none; padding: 1rem 1.1rem; border-radius: 12px; border: 1px solid rgba(255,255,255,.14); }
+    .channels a:hover { border-color: var(--sky); }
+    .channels svg { width: 22px; height: 22px; color: var(--sky); flex: none; }
+    .channels small { display: block; color: rgba(255,255,255,.6); font-size: .82rem; }
+
+    .form { background: var(--white); color: var(--ink); border-radius: 16px; padding: 2rem; display: grid; gap: 1.1rem; }
+    .form h3 { font-size: 1.3rem; }
+    .field { display: grid; gap: .4rem; min-width: 0; }
+    .field input, .field select, .field textarea { width: 100%; min-width: 0; }
+    .field label { font-weight: 600; font-size: .93rem; }
+    .field input, .field select, .field textarea {
+      font: inherit; font-size: 1rem; color: var(--ink);
+      padding: .8rem .9rem; border: 1px solid #C3D0EA; border-radius: 9px; background: var(--white);
     }
+    .field input:focus, .field select:focus, .field textarea:focus { outline: 2px solid var(--electric); outline-offset: 0; border-color: var(--electric); }
+    .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .form .btn { justify-content: center; width: 100%; }
+    .form-note { font-size: .85rem; color: var(--ink-soft); }
+    .form-error { color: #B42318; font-size: .9rem; min-height: 1.2em; }
 
-    /* -------------------
-       SECCIONES GENERALES
-    ---------------------- */
-    section {
-      padding: 3.5rem 0;
+    footer { background: #041746; color: rgba(255,255,255,.7); font-size: .9rem; padding: 2rem 0; }
+    .foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; }
+    .foot small { display: block; color: rgba(255,255,255,.45); margin-top: .3rem; }
+
+    /* WhatsApp flotante */
+    .wa-float {
+      position: fixed; right: 1.2rem; bottom: 1.2rem; z-index: 60;
+      width: 56px; height: 56px; border-radius: 50%;
+      background: #1FAF5A; color: var(--white);
+      display: grid; place-items: center;
+      box-shadow: 0 10px 30px -8px rgba(0,0,0,.45);
     }
+    .wa-float svg { width: 28px; height: 28px; }
 
-    section h2 {
-      text-align: center;
-      font-size: 1.9rem;
-      font-weight: 700;
-      color: var(--blue-primary);
-      margin-bottom: 1rem;
+    /* ---------- Responsive ---------- */
+    @media (max-width: 1000px) {
+      .hero-grid, .ai-grid, .about-grid, .contact-grid, .section-head { grid-template-columns: 1fr; }
+      .hero-grid { gap: 3rem; }
+      .steps { grid-template-columns: 1fr; gap: 0; }
+      .step { padding: 0 0 1.8rem 3.4rem; }
+      .step:not(:last-child)::after { top: 2.6rem; left: 1.1rem; right: auto; bottom: .2rem; width: 2px; height: auto; }
     }
-
-    .section-intro {
-      text-align: center;
-      max-width: 800px;
-      margin: auto;
-      color: var(--text-light);
-      margin-bottom: 2.5rem;
-      font-size: 1.05rem;
-    }
-
-    /* -------------------
-       CARDS SERVICIOS
-    ---------------------- */
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-    }
-
-    .card {
-      background: var(--white);
-      padding: 1.6rem;
-      border-radius: 0.8rem;
-      border-top: 4px solid var(--blue-primary);
-      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-    }
-
-    .card h3 {
-      color: var(--blue-primary);
-      margin-bottom: 0.6rem;
-      font-size: 1.15rem;
-    }
-
-    .card p {
-      color: var(--text-light);
-      font-size: 0.95rem;
-    }
-
-    /* -------------------
-       NOSOTROS
-    ---------------------- */
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1.4fr 1fr;
-      gap: 2rem;
-      align-items: start;
-    }
-
-    .mission-box {
-      background: var(--blue-primary);
-      color: var(--white);
-      padding: 1.6rem;
-      border-radius: 1rem;
-      font-size: 1rem;
-    }
-
-    /* -------------------
-       CONTACTO
-    ---------------------- */
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-    }
-
-    footer {
-      background: var(--blue-primary);
-      color: var(--white);
-      text-align: center;
-      padding: 1.2rem 0;
-      margin-top: 3rem;
-      font-size: 0.9rem;
-    }
-
-    /* -------------------
-       RESPONSIVE
-    ---------------------- */
-    @media (max-width: 900px) {
-      .hero,
-      .about-grid,
-      .contact-grid,
-      .cards {
-        grid-template-columns: 1fr;
+    @media (max-width: 820px) {
+      .nav-links, .nav .btn { display: none; }
+      .menu-toggle { display: block; }
+      .nav.open .nav-links {
+        display: flex; flex-direction: column; gap: 0;
+        position: absolute; top: 72px; left: 0; right: 0;
+        background: var(--navy); padding: .5rem 1.5rem 1.2rem;
+        border-bottom: 1px solid rgba(255,255,255,.1);
       }
+      .nav.open .nav-links a { display: block; padding: .8rem 0; }
+      .services { grid-template-columns: 1fr; }
+      .section { padding: 4.5rem 0; }
+      .hero { padding: 3.5rem 0 4.5rem; }
+      .field-row { grid-template-columns: 1fr; }
+      .ide { font-size: .78rem; }
     }
   </style>
 </head>
 
 <body>
 
-  <!-- HEADER -->
-  <header>
-    <div class="container nav">
-      <div class="logo">INTEGRADORA DE PROYECTOS</div>
-      <nav class="nav-links">
-        <a href="#inicio">Inicio</a>
-        <a href="#servicios">Servicios</a>
-        <a href="#nosotros">Nosotros</a>
-        <a href="#contacto">Contacto</a>
-      </nav>
+  <header class="site-header">
+    <div class="wrap nav" id="nav">
+      <a href="#inicio" class="brand" aria-label="Integradora de Proyectos, inicio">
+        <span class="brand-mark" aria-hidden="true">IP</span>
+        <span class="brand-name">Integradora de Proyectos<small>Consultoría y desarrollo ERP</small></span>
+      </a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#ia">IA aplicada</a></li>
+        <li><a href="#metodo">Cómo trabajamos</a></li>
+        <li><a href="#nosotros">Nosotros</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+      <a class="btn btn-primary" href="#contacto">Solicitar diagnóstico</a>
+      <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-links">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
     </div>
   </header>
 
-  <!-- HERO -->
-  <main class="container" id="inicio">
-    <section class="hero">
-      <div>
-        <h1>Consultoría ERP con más de 20 años de experiencia.</h1>
-        <p>
-          Optimizamos tus procesos, analizamos tu operación y desarrollamos soluciones tecnológicas a la medida.
-          Somos especialistas en implementación, soporte y personalizaciones de sistemas ERP para pequeñas y medianas empresas.
-        </p>
-        <a href="#contacto"><button class="btn-primary">Solicitar información</button></a>
-      </div>
+  <main id="inicio">
 
-      <div class="info-card">
-        <h3>Experiencia y enfoque</h3>
-        <ul>
-          <li>+20 años en consultoría ERP.</li>
-          <li>Especialistas en PYME en México.</li>
-          <li>Expertos en comercializadoras, editoriales, manufactura y servicios.</li>
-        </ul>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <p class="hero-kicker">Equipo especializado en ERP para empresas en México</p>
+          <h1>Consultoría y desarrollo <span class="protheus">para tu ERP</span></h1>
+          <p class="lead">
+            Optimizamos tu ERP mediante personalizaciones, desarrollo, integraciones, reportes,
+            soporte técnico y automatización de procesos. Nuestra mayor experiencia está en
+            <strong class="hl">TOTVS Protheus</strong>, y aplicamos ese mismo rigor en cualquier ERP.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#contacto">Solicitar diagnóstico</a>
+            <a class="btn btn-ghost" href="https://wa.me/525648156805?text=Hola%2C%20me%20interesa%20consultor%C3%ADa%20para%20mi%20ERP." target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>
+              Escribir por WhatsApp
+            </a>
+          </div>
+          <ul class="hero-facts">
+            <li><strong>20 años</strong>en el mercado mexicano</li>
+            <li><strong>Especialistas en Protheus</strong>y experiencia en otros ERP</li>
+            <li><strong>IA aplicada</strong>a las mejores prácticas</li>
+          </ul>
+        </div>
+
+        <div class="ide" role="img" aria-label="Ejemplo de código ADVPL para Protheus con una sugerencia de mejora generada con inteligencia artificial">
+          <div class="ide-bar" aria-hidden="true"><i></i><i></i><i></i><span>ESTK_SALDOS.prw</span></div>
+          <pre aria-hidden="true"><span class="ln"><span class="c">// Reporte programado: saldos en stock por correo</span></span><span class="ln"><span class="k">#Include</span> <span class="s">"TOTVS.ch"</span></span><span class="ln"> </span><span class="ln"><span class="k">User Function</span> <span class="f">ESTKSALD</span>()</span><span class="ln">  <span class="k">Local</span> cAlias := GetNextAlias()</span><span class="ln">  <span class="k">Local</span> cQuery := <span class="s">""</span></span><span class="ln"> </span><span class="ln">  cQuery := <span class="s">" SELECT B2_COD, B2_LOCAL, B2_QATU "</span></span><span class="ln">  cQuery += <span class="s">" FROM "</span> + RetSqlName(<span class="s">"SB2"</span>)</span><span class="ln">  cQuery += <span class="s">" WHERE D_E_L_E_T_ = ' ' "</span></span><span class="ln">  MPSysOpenQuery(cQuery, cAlias)</span><span class="ln">  <span class="c">// ... envío por workflow</span></span></pre>
+          <div class="ai-note">
+            <span class="ai-badge">IA</span>
+            <span>Sugerencia: filtra por <code>B2_FILIAL = xFilial("SB2")</code> y aprovecha el índice para reducir el tiempo de consulta.</span>
+          </div>
+        </div>
       </div>
     </section>
 
     <!-- SERVICIOS -->
-    <section id="servicios">
-      <h2>Servicios</h2>
-      <p class="section-intro">
-        Soluciones profesionales basadas en experiencia real de campo, ajustadas a la operación y necesidades tecnológicas de tu empresa.
-      </p>
-
-      <div class="cards">
-        <div class="card">
-          <h3>Análisis de procesos</h3>
-          <p>
-            Diagnóstico detallado de tu operación actual, identificación de áreas de mejora y recomendaciones para optimizar tiempos,
-            costos y flujos internos.
-          </p>
+    <section class="section" id="servicios">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Todo lo que tu ERP necesita, con un solo equipo</h2>
+          <p>Desde el ajuste de un reporte hasta una integración completa: entendemos tu operación primero y después escribimos el código. Trabajamos con el ERP que ya usas.</p>
         </div>
 
-        <div class="card">
-          <h3>Implementación de ERP</h3>
-          <p>
-            Parametrización, configuración y puesta en marcha de sistemas ERP adaptados a tu giro y forma de trabajo.
-            Acompañamiento en cada etapa del proceso.
-          </p>
-        </div>
+        <ul class="services">
+          <li class="service">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+            <div>
+              <h3>Personalizaciones</h3>
+              <p>Adaptamos el ERP a tu forma de trabajar con campos, validaciones y extensiones a la medida, sin comprometer las actualizaciones del sistema.</p>
+              <p class="tags">Puntos de entrada · Campos · Validaciones</p>
+            </div>
+          </li>
+          <li class="service">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8 7-5 5 5 5"/><path d="m16 7 5 5-5 5"/><path d="m14 4-4 16"/></svg>
+            <div>
+              <h3>Desarrollo a la medida</h3>
+              <p>Programas nuevos con código limpio, documentado y probado: rutinas, pantallas, procesos por lotes y cargas masivas. En Protheus, desarrollo ADVPL y TL++.</p>
+              <p class="tags">ADVPL · TL++ · SQL · Desarrollo a la medida</p>
+            </div>
+          </li>
+          <li class="service">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="6" r="3"/><circle cx="18" cy="18" r="3"/><path d="M9 6h4a4 4 0 0 1 4 4v5"/><path d="M15 18h-4a4 4 0 0 1-4-4V9"/></svg>
+            <div>
+              <h3>Integraciones</h3>
+              <p>Conectamos tu ERP con tus otros sistemas, portales y archivos para que la información fluya sin capturas dobles.</p>
+              <p class="tags">REST · Web services · Layouts Excel / TXT</p>
+            </div>
+          </li>
+          <li class="service">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg>
+            <div>
+              <h3>Reportes</h3>
+              <p>Reportes operativos, financieros y contables que cuadran contra el estándar y llegan a Excel o al correo de quien los necesita.</p>
+              <p class="tags">Excel · SQL Server · Reportes programados</p>
+            </div>
+          </li>
+          <li class="service">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 1 18 0v5a2 2 0 0 1-2 2h-2v-6h4"/><path d="M3 13h4v6H5a2 2 0 0 1-2-2Z"/></svg>
+            <div>
+              <h3>Soporte técnico</h3>
+              <p>Atención funcional y técnica para resolver incidencias, revisar errores y mantener tu base de datos y tus procesos en buen estado.</p>
+              <p class="tags">Funcional · Técnico · Base de datos</p>
+            </div>
+          </li>
+          <li class="service">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 4v5h-5"/><path d="M12 8v4l3 2"/></svg>
+            <div>
+              <h3>Automatización de procesos</h3>
+              <p>Tareas programadas, alertas y flujos de aprobación por correo que eliminan trabajo manual y reducen errores.</p>
+              <p class="tags">Scheduler · Workflow · Alertas</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
 
-        <div class="card">
-          <h3>Soporte y personalizaciones</h3>
-          <p>
-            Acompañamiento funcional y técnico, así como desarrollos a la medida que permiten que el ERP se ajuste al 100% a tus requerimientos.
+    <!-- IA -->
+    <section class="section ai" id="ia">
+      <div class="wrap ai-grid">
+        <div>
+          <h2>Inteligencia artificial al servicio de las mejores prácticas</h2>
+          <p class="lead">
+            Incorporamos IA en cada etapa del proyecto para revisar, documentar y probar con más rigor.
+            El resultado: implementaciones más ordenadas, código más confiable y entregas en menos tiempo.
+          </p>
+          <p class="ai-disclaimer">
+            La IA nos ayuda a trabajar mejor; las decisiones las toma siempre nuestro equipo, con la experiencia de dos décadas en ERP y en tu industria.
           </p>
         </div>
+        <ul class="ai-points">
+          <li>
+            <h3>Revisión de código</h3>
+            <p>Cada desarrollo se contrasta con estándares de calidad y buenas prácticas del lenguaje y del ERP antes de llegar a producción.</p>
+          </li>
+          <li>
+            <h3>Análisis de procesos</h3>
+            <p>Detectamos cuellos de botella y pasos redundantes en tu operación para proponer mejoras con base en datos.</p>
+          </li>
+          <li>
+            <h3>Optimización de consultas</h3>
+            <p>Identificamos consultas y procedimientos lentos en SQL Server y los reescribimos para que respondan más rápido.</p>
+          </li>
+          <li>
+            <h3>Documentación y pruebas</h3>
+            <p>Generamos documentación técnica y escenarios de prueba completos para que cada cambio quede claro y verificado.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- MÉTODO -->
+    <section class="section" id="metodo">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Cómo trabajamos</h2>
+          <p>Un proceso claro, con entregables en cada etapa, para que sepas siempre en qué punto está tu proyecto.</p>
+        </div>
+        <ol class="steps">
+          <li class="step"><h3>Diagnóstico</h3><p>Revisamos tu operación, tu ERP y lo que necesitas resolver.</p></li>
+          <li class="step"><h3>Propuesta</h3><p>Definimos alcance, tiempos y costo con una solución concreta.</p></li>
+          <li class="step"><h3>Desarrollo</h3><p>Construimos y revisamos con apoyo de IA y estándares de calidad.</p></li>
+          <li class="step"><h3>Pruebas</h3><p>Validamos en un ambiente de pruebas junto con tu equipo.</p></li>
+          <li class="step"><h3>Puesta en marcha</h3><p>Liberamos a producción y damos soporte de seguimiento.</p></li>
+        </ol>
       </div>
     </section>
 
     <!-- NOSOTROS -->
-    <section id="nosotros">
-      <h2>Sobre nosotros</h2>
-      <p class="section-intro">
-        Experiencia, claridad y soluciones prácticas para los desafíos tecnológicos de hoy.
-      </p>
-
-      <div class="about-grid">
+    <section class="section about" id="nosotros">
+      <div class="wrap about-grid">
         <div>
+          <div class="years" aria-hidden="true">20</div>
+          <p class="years-caption">años de experiencia en el mercado mexicano</p>
+        </div>
+        <div class="about-copy">
+          <h2>Experiencia real de campo, enfoque en resultados</h2>
           <p>
             Integradora de Proyectos nace con el compromiso de ofrecer soluciones eficientes a la pequeña y mediana empresa,
             alineadas a la realidad operativa del mercado mexicano.
           </p>
           <p>
-            Con más de dos décadas de experiencia en consultoría ERP, hemos acompañado a empresas de diversos giros para fortalecer sus procesos,
-            mejorar su control interno y aprovechar la tecnología como herramienta de crecimiento.
+            Durante 20 años hemos acompañado a empresas de diversos giros en análisis de procesos, implementación de ERP,
+            soporte y desarrollos a la medida. Hoy contamos con un equipo especializado que combina conocimiento funcional, técnico y herramientas de
+            inteligencia artificial. TOTVS Protheus es el ERP en el que tenemos mayor experiencia, y llevamos
+            esa misma metodología a cualquier otro ERP que use tu empresa.
           </p>
-          <p>
-            Nuestro enfoque es directo, profesional y orientado a resultados medibles. Cada recomendación y cada desarrollo está pensado para
-            generar valor inmediato y sostenido.
-          </p>
-        </div>
-
-        <div class="mission-box">
-          <strong>Misión:</strong><br>
-          Acompañar a las empresas en su crecimiento mediante soluciones tecnológicas claras,
-          funcionales y totalmente alineadas a sus procesos administrativos y operativos.
+          <ul class="industries" aria-label="Industrias en las que tenemos experiencia">
+            <li>Comercializadoras</li>
+            <li>Editoriales</li>
+            <li>Manufactura</li>
+            <li>Servicios</li>
+          </ul>
+          <div class="mission">
+            <strong>Nuestra misión</strong>
+            <p>Acompañar a las empresas en su crecimiento mediante soluciones tecnológicas claras, funcionales y totalmente alineadas a sus procesos administrativos y operativos.</p>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- CONTACTO -->
-    <section id="contacto">
-      <h2>Contacto</h2>
-      <p class="section-intro">
-        Ponte en contacto con nosotros para una asesoría, diagnóstico o cotización personalizada.
-      </p>
-
-      <div class="contact-grid">
+    <section class="section contact" id="contacto">
+      <div class="wrap contact-grid">
         <div>
-          <p><strong>Correo:</strong> contacto@intpromes.com</p>
-          <p><strong>WhatsApp:</strong> +52 1 56 4815 6805</p>
-          <p><strong>LinkedIn:</strong> Integradora de Proyectos</p>
+          <h2>Hablemos de tu ERP</h2>
+          <p class="lead">Cuéntanos qué necesitas y te proponemos un diagnóstico, una asesoría o una cotización personalizada.</p>
+          <ul class="channels">
+            <li>
+              <a href="https://wa.me/525648156805" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Z"/></svg>
+                <span><small>WhatsApp</small>+52 1 56 4815 6805</span>
+              </a>
+            </li>
+            <li>
+              <a href="mailto:contacto@intpromes.com">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+                <span><small>Correo</small>contacto@intpromes.com</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.linkedin.com/search/results/companies/?keywords=Integradora%20de%20Proyectos" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9.5h4V21H3Zm7 0h3.8v1.6h.1a4.2 4.2 0 0 1 3.8-2c4 0 4.8 2.6 4.8 6V21h-4v-5.2c0-1.2 0-2.9-1.8-2.9s-2 1.4-2 2.8V21h-4Z"/></svg>
+                <span><small>LinkedIn</small>Integradora de Proyectos</span>
+              </a>
+            </li>
+          </ul>
         </div>
 
-        <form>
-          <label>Nombre</label>
-          <input type="text" placeholder=" ">
-
-          <label>Correo electrónico</label>
-          <input type="email" placeholder=" ">
-
-          <label>Mensaje</label>
-          <textarea placeholder="    " rows="4"></textarea>
-
-          <button class="btn-primary" style="width: 100%; margin-top: 0.8rem;">
-            Enviar mensaje
-          </button>
+        <form class="form" id="contact-form" novalidate>
+          <h3>Solicitar diagnóstico</h3>
+          <div class="field-row">
+            <div class="field">
+              <label for="f-nombre">Nombre</label>
+              <input id="f-nombre" name="nombre" type="text" autocomplete="name" required>
+            </div>
+            <div class="field">
+              <label for="f-empresa">Empresa</label>
+              <input id="f-empresa" name="empresa" type="text" autocomplete="organization">
+            </div>
+          </div>
+          <div class="field">
+            <label for="f-correo">Correo electrónico</label>
+            <input id="f-correo" name="correo" type="email" autocomplete="email" required>
+          </div>
+          <div class="field">
+            <label for="f-erp">¿Qué ERP usas?</label>
+            <select id="f-erp" name="erp">
+              <option>TOTVS Protheus</option>
+              <option>Otro ERP</option>
+              <option>Aún no tengo ERP</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="f-servicio">¿Qué necesitas?</label>
+            <select id="f-servicio" name="servicio">
+              <option>Personalizaciones</option>
+              <option>Desarrollo a la medida / ADVPL</option>
+              <option>Integraciones</option>
+              <option>Reportes</option>
+              <option>Soporte técnico</option>
+              <option>Automatización de procesos</option>
+              <option>Implementación o análisis de procesos</option>
+              <option>Otro</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="f-mensaje">Mensaje</label>
+            <textarea id="f-mensaje" name="mensaje" rows="4" placeholder="Cuéntanos brevemente tu situación actual"></textarea>
+          </div>
+          <p class="form-error" id="form-error" role="alert"></p>
+          <button class="btn btn-primary" type="submit">Enviar por WhatsApp</button>
+          <p class="form-note">Al enviar se abrirá WhatsApp con tu mensaje listo. Si lo prefieres, <a href="mailto:contacto@intpromes.com" id="mail-link">escríbenos por correo</a>.</p>
         </form>
       </div>
     </section>
   </main>
 
   <footer>
-    © 2025 Integradora de Proyectos — Consultoría ERP y soluciones tecnológicas.
+    <div class="wrap foot">
+      <div>
+        © <span id="year">2026</span> Integradora de Proyectos — Consultoría y desarrollo ERP, especialistas en TOTVS Protheus.
+        <small>TOTVS y Protheus son marcas registradas de sus respectivos propietarios.</small>
+      </div>
+      <div>intpromes.com</div>
+    </div>
   </footer>
 
+  <a class="wa-float" href="https://wa.me/525648156805?text=Hola%2C%20me%20interesa%20consultor%C3%ADa%20para%20mi%20ERP." target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>
+  </a>
+
+  <script>
+    // Año actual
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Menú móvil
+    const nav = document.getElementById('nav');
+    const toggle = document.getElementById('menu-toggle');
+    toggle.addEventListener('click', () => {
+      const open = nav.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open);
+      toggle.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
+    });
+    document.querySelectorAll('#nav-links a').forEach(a => a.addEventListener('click', () => {
+      nav.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+    }));
+
+    // Formulario: arma el mensaje y lo abre en WhatsApp (funciona en GitHub Pages, sin servidor)
+    const form = document.getElementById('contact-form');
+    const err = document.getElementById('form-error');
+    const buildText = () => {
+      const d = new FormData(form);
+      return `Hola, soy ${d.get('nombre')}` +
+        (d.get('empresa') ? ` de ${d.get('empresa')}` : '') +
+        `.\nCorreo: ${d.get('correo')}\nERP: ${d.get('erp')}\nServicio: ${d.get('servicio')}` +
+        (d.get('mensaje') ? `\n\n${d.get('mensaje')}` : '');
+    };
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      const nombre = form.nombre.value.trim();
+      const correo = form.correo;
+      if (!nombre) { err.textContent = 'Escribe tu nombre para continuar.'; form.nombre.focus(); return; }
+      if (!correo.value.trim() || !correo.checkValidity()) { err.textContent = 'Escribe un correo válido, por ejemplo nombre@empresa.com.'; correo.focus(); return; }
+      err.textContent = '';
+      window.open('https://wa.me/525648156805?text=' + encodeURIComponent(buildText()), '_blank', 'noopener');
+    });
+    document.getElementById('mail-link').addEventListener('click', e => {
+      if (!form.nombre.value.trim()) return; // sin datos, usa mailto simple
+      e.preventDefault();
+      location.href = 'mailto:contacto@intpromes.com?subject=' +
+        encodeURIComponent('Solicitud de diagnóstico – ' + form.servicio.value) +
+        '&body=' + encodeURIComponent(buildText());
+    });
+  </script>
 </body>
 </html>
