@@ -1,0 +1,20 @@
+# Integradora de Proyectos
+
+> Consultoría y desarrollo para cualquier ERP en México, con mayor experiencia en TOTVS Protheus. 20 años en el mercado mexicano. Equipo especializado funcional y técnico que aplica inteligencia artificial para implementar las mejores prácticas.
+
+## Servicios
+- Personalizaciones de ERP (puntos de entrada, campos, validaciones)
+- Desarrollo a la medida (ADVPL y TL++ en TOTVS Protheus)
+- Integraciones con otros sistemas (REST, web services, layouts Excel/TXT)
+- Reportes operativos, financieros y contables (Excel, SQL Server)
+- Soporte técnico funcional y de base de datos
+- Automatización de procesos (tareas programadas, workflows de aprobación, alertas)
+- Análisis de procesos e implementación de ERP
+
+## Industrias
+Comercializadoras, editoriales, manufactura y servicios; pequeña y mediana empresa.
+
+## Contacto
+- Sitio: https://intpromes.com/
+- Correo: contacto@intpromes.com
+- WhatsApp: +52 1 56 4815 6805
